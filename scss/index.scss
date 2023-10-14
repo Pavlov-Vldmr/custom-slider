@@ -1,0 +1,91 @@
+.container {
+  display: block;
+  width: 500px;
+  height: 500px;
+  border: 2px solid rgb(255, 0, 0);
+  margin-top: 30px;
+  margin-left: 30px;
+
+  .slider__nav-next-button {
+    display: block;
+    
+    top: 450px;
+    background-color: rgb(182, 99, 99);
+    width: 200px;
+    height: 100px;
+    cursor: pointer;
+  }
+  
+  .slider__dots{
+    width: 500px;
+    height: 20px;
+    ._dot{
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+    }
+    ._checked{
+      background-color: gray;
+    }
+  }
+
+}
+.stage-outer {
+  // need for
+  // position: absolute;
+  overflow: hidden;
+  width: inherit;
+  height: inherit;
+  -webkit-transform: translate3d(0px, 0px, 0px);
+}
+.slider {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: auto;
+  position: relative;
+  &__items-container {
+    display: flex;
+    position: relative;
+    transition: transform 0.5s ease-in-out;
+    flex-direction: row;
+    height: 100%;
+    min-width: 100%;
+    gap: 100px;
+
+    .item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 100%;
+      position: absolute;
+      opacity: 0;
+      transition: all 0.5s ease-in-out;
+
+      height: 100%;
+      cursor: pointer;
+      img {
+        background-clip: border-box;
+        width: 100%;
+        object-fit: cover;
+      }
+      span{
+        position: absolute;
+        color: red;
+        font-size: 50px;
+        border: 5px solid red;
+        z-index: 999;
+      }
+
+      
+    }
+    ._active{
+
+      visibility: visible;
+      opacity: 1;
+
+    }
+
+
+  }
+}
